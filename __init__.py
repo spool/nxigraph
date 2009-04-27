@@ -15,11 +15,11 @@ def nx2igraph(nxgraph):
     l = [(d[t[0]], d[t[1]]) for t in nxgraph.edges()]
     return(igraph.Graph(l))
 
-class SGraph(networkx.Graph):
+class NXiGraph(networkx.Graph):
     """
     Extends the networkx Graph class with an igraph property.
 
-    >>> g = SGraph()
+    >>> g = NXiGraph()
     >>> edgelist = [('blue', 'purple'),
     ...                 ('blue', 'green'),
     ...                 ('blue', 'red'),
