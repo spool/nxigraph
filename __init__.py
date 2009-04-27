@@ -1,6 +1,14 @@
 """
 Provides a toolkit for interoperability between igraph and networkx
+
+>>> h = networkx.erdos_renyi_graph(30, .6)
+>>> g = NXiGraph(h)
+>>> networkx.clustering(g) == networkx.clustering(h)
+True
+>>> networkx.diameter(g) == g.igraph.diameter() == networkx.diameter(h)
+True
 """
+
 import networkx
 import igraph
 
