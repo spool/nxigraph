@@ -37,8 +37,16 @@ class NXiGraph(networkx.Graph):
     4
     """
     @property
+    def node_dict(self):
+        d = {}
+        for i, k in enumerate(self.adj.keys()):
+            d[k] = i
+        return d
+
+    @property
     def igraph(self):
-        return nx2igraph(self)
+        l = [(self.node_dict[t[0]], self.node_dict[t[1]]) for t in self.edges()]
+        return(igraph.Graph(l))
 
 if __name__ == "__main__":
     import doctest
