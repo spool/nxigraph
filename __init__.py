@@ -12,17 +12,6 @@ True
 import networkx
 import igraph
 
-def nx2igraph(nxgraph):
-    """
-    Converts a networkx graph to an igraph graph.
-    """
-    d = {}
-    adj = nxgraph.adj
-    for i, k in enumerate(adj.keys()):
-        d[k] = i
-    l = [(d[t[0]], d[t[1]]) for t in nxgraph.edges()]
-    return(igraph.Graph(l))
-
 class NXiGraph(networkx.Graph):
     """
     Extends the networkx Graph class with an igraph property.
