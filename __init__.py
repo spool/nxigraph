@@ -43,7 +43,10 @@ class NXiGraph(networkx.Graph):
     @property
     def igraph(self):
         l = [(self.node_dict[t[0]], self.node_dict[t[1]]) for t in self.edges()]
-        return(igraph.Graph(l))
+        g = igraph.Graph(l)
+        g.vs["name"] = [str(i) for i in self.nodes()]
+        return g
+        #return igraph.Graph(l)
 
 if __name__ == "__main__":
     import doctest
